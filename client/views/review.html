@@ -1,0 +1,15 @@
+
+<div class="row">
+  <div class="col-md-12 text-right">
+      <p>
+        <button class="btn btn-primary" ng-click="toggleNames()"><span ng-show="showNames">Hide</span><span ng-hide="showNames">Show</span> names</button>
+      </p>
+  </div>
+</div>
+
+<div class="list-group" ng-repeat="type in types">
+  <div class="list-group-item text-center">
+    <h4 class="list-group-item-heading" ng-show="showNames">{{ type.name }}</h4>
+    <p class="list-group-item-text"><img src="{{ type.img }}" class="img-responsive type-img"></p>
+  </div>
+</div>
