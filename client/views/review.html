@@ -1,17 +1,48 @@
 
 <div class="row">
-  <div class="col-md-12 text-right">
-      <p>
-      	<button class="btn btn-primary" ng-click="toggleQuiz()">Switch view [{{quizFilter}}]</button>
+    <div class="col-md-12">
+        <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <strong>Note:</strong> Names are strict to names above typeface image (case insensitive). In a later version I can add alternate accepted answers.
+        </div>
+    </div>
+</div>
 
-        <button class="btn btn-primary" ng-click="toggleNames()"><span ng-show="showNames">Hide</span><span ng-hide="showNames">Show</span> names</button>
-      </p>
-  </div>
+<div class="row">
+    <div class="col-md-12 text-right">
+        <p>
+            <div class="btn-group">
+                <button class="btn btn-success" ng-click="check()">Check answers</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-danger" ng-click="reset()">Reset</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" ng-click="toggleNames()"><span ng-show="showNames">Hide</span><span
+                        ng-hide="showNames">Show</span> names
+                </button>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    View options <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="" ng-click="quizFilter = ''">All</a></li>
+                    <li><a href="" ng-click="quizFilter = 'quiz1'">Quiz 1</a></li>
+                    <li><a href="" ng-click="quizFilter = 'quiz2'">Quiz 2</a></li>
+                </ul>
+            </div>
+        </p>
+    </div>
 </div>
 
 <div class="list-group" ng-repeat="type in types | filter:quizFilter">
-  <div class="list-group-item text-center">
-    <h4 class="list-group-item-heading" ng-show="showNames">{{ type.name }}</h4>
-    <p class="list-group-item-text"><img src="{{ type.img }}" class="img-responsive type-img"></p>
-  </div>
+     <div class="list-group-item text-center">
+        <h4 class="list-group-item-heading" ng-show="showNames">{{ type.name }}</h4>
+        <p class="list-group-item-text"><img src="{{ type.img }}" class="img-responsive type-img"></p>
+        <div class="form-group" ng-class="{'has-error': type.correct === false}">
+            <input type="text" class="form-control" ng-model="type.answer" placeholder="Enter typeface name...">
+        </div>
+    </div>
 </div>
