@@ -3,140 +3,147 @@
 		"name": "Courier New",
 		"img": "images/courier-new.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Arial",
 		"img": "images/arial.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Helvetica",
 		"img": "images/helvetica.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Adobe Garamond",
 		"img": "images/garamond.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Palatino",
 		"img": "images/palatino.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Apple Chancery",
 		"img": "images/apple-chancery.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Big Caslon",
 		"img": "images/big-calson.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "American Typewriter",
 		"img": "images/american-typewriter.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Didot",
 		"img": "images/didot.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Bodoni",
 		"img": "images/bodoni.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Baskerville",
 		"img": "images/baskerville.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Rockwell",
 		"img": "images/rockwell.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Cooper Black",
 		"img": "images/cooper-black.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Univers",
 		"img": "images/univers.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Mesquite",
 		"img": "images/mesquite.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Jane Austen",
 		"img": "images/jane-austen.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Krungthep",
 		"img": "images/krungthep.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Tisa",
 		"img": "images/tisa.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Americana",
 		"img": "images/americana.png",
 		"tags": [
-			""
+			"quiz1"
 		]
 	},
 	{
 		"name": "Socialico",
 		"img": "images/socialico.png",
 		"tags": [
-			""
+			"quiz1"
+		]
+	},
+	{
+		"name": "Demo Quiz 2",
+		"img": "images/socialico.png",
+		"tags": [
+			"quiz2"
 		]
 	}
 ]

@@ -6,6 +6,8 @@ angular.module('ReviewApp')
         
         $scope.types = [];
 
+        $scope.quizFilter = "";
+
         $http.get('data/data.json')
             .success(function(data) {
                 $log.debug('Data retreived: ', data);
@@ -20,4 +22,21 @@ angular.module('ReviewApp')
         $scope.toggleNames = function() {
             $scope.showNames = ($scope.showNames == true ? false : true);
         };
+
+        $scope.toggleQuiz = function() {
+
+            switch($scope.quizFilter) {
+                case "quiz1":
+                    $scope.quizFilter = "quiz2";
+                    break;
+                case "quiz2"
+                    $scope.quizFilter = "";
+                    break;
+                case "":
+                    $scope.quizFilter = "quiz1";
+                    break;
+            }
+        };
+
+        
     });
