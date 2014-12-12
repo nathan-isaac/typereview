@@ -1,5 +1,5 @@
 angular.module('ReviewApp', ['ngRoute', 'ngResource', 'ngMessages'])
-    .config(function ($routeProvider, $locationProvider) {
+    .config(function ($routeProvider) {
         $routeProvider
             .when('/review', {
                 controller: 'ReviewController',

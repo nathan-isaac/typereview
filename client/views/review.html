@@ -1,3 +1,4 @@
+<div class="alert alert-danger fix-alert-left" role="alert" ng-show="incorrectAnswers">Missed {{ incorrectAnswers }}</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -40,7 +41,7 @@
 <div class="list-group" ng-repeat="type in types | filter:quizFilter">
      <div class="list-group-item text-center">
         <h4 class="list-group-item-heading" ng-show="showNames">{{ type.name }}</h4>
-        <p class="list-group-item-text"><img src="{{ type.img }}" class="img-responsive type-img"></p>
+        <p class="list-group-item-text"><img ng-src="{{ type.img }}" class="img-responsive type-img"></p>
         <div class="form-group" ng-class="{'has-error': type.correct === false}">
             <input type="text" class="form-control" ng-model="type.answer" placeholder="Enter typeface name...">
         </div>
