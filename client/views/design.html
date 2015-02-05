@@ -1,0 +1,95 @@
+<div class="alert alert-danger fix-alert-left" role="alert" ng-show="incorrectAnswers">Missed {{ incorrectAnswers }}</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <strong>Note:</strong> Titles, Designers and Dates are character specific (case insensitive). Notes are not validated.
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-right">
+        <p>
+            <div class="btn-group">
+                <button class="btn btn-success" ng-click="check()">Check answers</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-danger" ng-click="reset()">Reset</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" ng-click="toggleAnswers()"><span ng-show="showAnswers">Hide</span><span
+                        ng-hide="showAnswers">Show</span> answers
+                </button>
+            </div>
+
+            <!--<div class="btn-group">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    View options <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="" ng-click="quizFilter = ''">All</a></li>
+                    <li><a href="" ng-click="quizFilter = 'quiz1'">Quiz 1</a></li>
+                    <li><a href="" ng-click="quizFilter = 'quiz2'">Quiz 2</a></li>
+                </ul>
+            </div>-->
+        </p>
+    </div>
+</div>
+
+
+<div class="list-group">
+    <div class="list-group-item" ng-repeat="question in questions | filter:quizFilter">
+        <div class="row">
+            <div class="col-md-3">
+                <img ng-src="{{ question.img }}" alt="{{ question.title }}" class="img-thumbnail img-responsive">
+            </div>
+            <div class="col-md-4">
+                <dl ng-show="showAnswers">
+                    <dt>Title</dt>
+                    <dd>{{ question.title }}</dd>
+
+                    <dt>Designer</dt>
+                    <dd>{{ question.designer }}</dd>
+
+                    <dt>Date</dt>
+                    <dd>{{ question.date }}</dd>
+
+                    <dt>Notes</dt>
+                    <dd>{{ question.notes }}</dd>
+                </dl>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group" ng-class="{'has-error': question.correct.title === false}">
+                    <!--<label for="title">Title</label>-->
+                    <input ng-model="question.answer.title" type="text" class="form-control" id="title" placeholder="Enter title">
+                </div>
+                <div class="form-group" ng-class="{'has-error': question.correct.designer === false}">
+                    <!--<label for="designer">Designer</label>-->
+                    <input ng-model="question.answer.designer" type="text" class="form-control" id="designer" placeholder="Enter designer">
+                </div>
+                <div class="form-group" ng-class="{'has-error': question.correct.date === false}">
+                    <!--<label for="date">Date</label>-->
+                    <input ng-model="question.answer.date" type="text" class="form-control" id="date" placeholder="Enter date">
+                </div>
+                <div class="form-group" ng-class="{'has-error': question.correct.notes === false}">
+                    <!--<label for="notes">Notes</label>-->
+                    <textarea ng-model="question.answer.notes" class="form-control" id="notes" rows="3" placeholder="Enter notes"></textarea>
+                    <!--<input type="text" class="form-control" id="notes" placeholder="Enter notes">-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="list-group" ng-repeat="question in questions | filter:quizFilter">
+     <div class="list-group-item text-center">
+        <h4 class="list-group-item-heading" ng-show="showNames">{{ question.name }}</h4>
+        <p class="list-group-item-text"><img ng-src="{{ question.img }}" class="img-responsive type-img"></p>
+        <div class="form-group" ng-class="{'has-error': question.correct === false}">
+            <input type="text" class="form-control" ng-model="question.answer" placeholder="Enter typeface name...">
+        </div>
+    </div>
+</div>-->

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html ng-app='ReviewApp'>
     <head>
-        <title>Type Review</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Quiz App</title>
         <link rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.min.css' />
         <link rel='stylesheet' href='src/bootstrap.min.css' />
         <style>
@@ -20,7 +23,17 @@
     <body>
         <div class='container'>
             <div class='page-header'>
-                <h1>Type Review <small>(Alpha)</small></h1>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                        Quiz Apps <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#/review">Typeface Review</a></li>
+                        <li><a href="#/design">Design History</a></li>
+                    </ul>
+                </div>
+
+                <h1>Quiz App <small>(Alpha)</small></h1>
             </div>
             <div class='row'>
                 <div class='col-sm-12' ng-view></div>
