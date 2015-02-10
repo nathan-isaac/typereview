@@ -3,154 +3,161 @@
     "designer": "Denis Diderot & Jean d'Alemert",
     "title": "Title page of Encyclopedie",
     "date": "1751",
-    "notes": "Some notes",
+    "notes": "Acted as an informative publication. Displayed an interest in print production. ",
     "img": "images/design-history/encyclopedie.png"
   },
   {
     "designer": "The Portland Vase",
     "title": "Josiah Wedgwood",
     "date": "1790",
-    "notes": "Some notes",
+    "notes": "Consistency and Quality. Division of labor. Molds over potters wheel.",
     "img": "images/design-history/wedgwood.png"
   },
   {
-    "designer": "CoTon Gin",
+    "designer": "Cotton Gin",
     "title": "Eli Whitney",
     "date": "1790-1800",
-    "notes": "Some notes",
+    "notes": "Within two years of the invention production increased by 8 fold. Paved the way for mass production.",
     "img": "images/design-history/gin.png"
   },
   {
     "designer": "Michael Thonet",
     "title": "No. 14 Chair",
     "date": "1859",
-    "notes": "Some notes",
+    "notes": "36 dismantled chairs could be packed into one quebec meter. Most successful production in the history of industrial mass production.",
     "img": "images/design-history/thonet.png"
   },
   {
     "designer": "Joseph Paxton",
     "title": "Crystal Palace",
     "date": "1851",
-    "notes": "Some notes",
+    "notes": "Show case art. Optimize, belief in progress, and materialism. World wide representation of manufactures. ",
     "img": "images/design-history/paxton.png"
   },
   {
     "designer": "William Morris",
     "title": "Trellis wallpaper",
     "date": "1862",
-    "notes": "Some notes",
+    "notes": "Theme of wallpaper was natural. Hand crafted. Long process. Timeless appeal.",
     "img": "images/design-history/morris.png"
   },
   {
     "designer": "Hector Guimard",
     "title": "Smoking Bench",
     "date": "1897",
-    "notes": "Some notes",
+    "notes": "Lively a-semicircle design. Intended to be fulling integrated into the style of the entire house.",
     "img": "images/design-history/guimard.png"
   },
   {
     "designer": "Gustav Stickley",
     "title": "Adjustable-Back Chair No. 2342",
     "date": "1900",
-    "notes": "Some notes",
+    "notes": "Ideas on simplicity, honesty, and truth. Work was nostalgics on handy-craft and pre-industrial era.",
     "img": "images/design-history/stickley.png"
   },
   {
     "designer": "Henry van de Velde",
     "title": "Poster for Tropon food concentrate",
-    "date": "1899",
-    "notes": "Some notes",
+    "date": "1898",
+    "notes": "Experiments with imaginative letter forms. Abstract art. Modulated color. Illustrating in a non-traditional manner. (Pg. 137)",
     "img": "images/design-history/velde.png"
   },
   {
     "designer": "Alponso Mucha",
     "title": "Cycles Perfecta",
     "date": "1902",
-    "notes": "Some notes",
+    "notes": "Used organic and flowing forms. Used pastel shades for his painting and fellow motifs and feminine forms.",
     "img": "images/design-history/mucha.png"
   },
   {
     "designer": "Peter Behrens",
     "title": "Poster for AEG lightbulbs",
     "date": "1901",
-    "notes": "Some notes",
+    "notes": "A machine aesthetic. Used technical determinism and functionalism.",
     "img": "images/design-history/behrens.png"
   },
   {
     "designer": "Peter Behrens",
     "title": "Electric Kettle",
     "date": "1909",
-    "notes": "Some notes",
+    "notes": "Visual unity. Hand hammered. Hexagonal trademark. (Pg. 149)",
     "img": "images/design-history/behrens-kettle.png"
   },
   {
     "designer": "Le Corbusier",
     "title": "Villa Savoye",
     "date": "1929-1931",
-    "notes": "Some notes",
+    "notes": "Re-use ground under the structure. Color was used functionally to identify different spaces and to set a mood.",
     "img": "images/design-history/corbusier.png"
   },
   {
     "designer": "Jean Coulden",
     "title": "Clock",
     "date": "1928",
-    "notes": "Some notes",
+    "notes": "Clock references cubism. Uses enamel glass paste.",
     "img": "images/design-history/coulden.png"
   },
   {
     "designer": "A.M. Cassandre",
     "title": "Pivolo Aperitif",
-    "date": "1924",
-    "notes": "Some notes",
+    "date": "1925",
+    "notes": "Using pictographic images with blocks of text. Symbols appeal to immediacy and signification. (Pg. 172)",
     "img": "images/design-history/cassandre.png"
   },
   {
     "designer": "Wilhelm Wagenfeld",
     "title": "Model ME1 Table Lamp",
     "date": "1924",
-    "notes": "Some notes",
+    "notes": "Early products made by the Bauhaus. Reflects hand crafted artistry and strict geometric and mathematical forms.",
     "img": "images/design-history/wagenfeld.png"
   },
   {
     "designer": "Gerriff Rietveld",
     "title": "Red-Blue Chair",
     "date": "1948",
-    "notes": "Some notes",
+    "notes": "All joint extend beyond the where the right angle meet to accentuate negative space. Back of seat made of plywood.",
     "img": "images/design-history/rietveld.png"
   },
   {
     "designer": "Josef Albers",
     "title": "Kombinationsschrift Typeface",
     "date": "1928",
-    "notes": "Some notes",
+    "notes": "Designed while teaching at the Bauhaus. Used geometric forms. Drawn on a grid.",
     "img": "images/design-history/albers.png"
   },
   {
     "designer": "Lester Baell",
     "title": "Rural Electrification Administration Lighting Poster",
     "date": "late 1930s",
-    "notes": "Some notes",
+    "notes": "Employed characteristics of the New Typography and abstract art. Designs used strong contrast and simplicity to communicate information with little text.",
     "img": "images/design-history/baell.png"
   },
   {
     "designer": "Henry Dreyfuss",
     "title": "Type 300",
     "date": "1937",
-    "notes": "Some notes",
+    "notes": "Switched from metal to lighter way plastic. Placed numbers on outside instead of inside for legibility.",
     "img": "images/design-history/dreyfuss.png"
   },
   {
     "designer": "Piet Mondrian and Theo Van Doesburg",
     "title": "Cover for De Stijl Vol 4",
     "date": "1921",
-    "notes": "Some notes",
+    "notes": "Mondrian referred to his new conception of art as Neoplasticism or the 'New Plastic'. Balance between the individual and the universal consciousness.",
     "img": "images/design-history/doesburg.png"
   },
   {
     "designer": "Raymond Loewy",
     "title": "Coldspot for Sears",
     "date": "1934",
-    "notes": "Some notes",
+    "notes": "Main point of interest at the Paris international exposition. Stream line design. Improved reliability and serviceability.",
     "img": "images/design-history/loewy.png"
+  },
+  {
+    "designer": "Joseph Leyendecker",
+    "title": "Arrow Collars Ad",
+    "date": "1920",
+    "notes": "Experiment with Photography and Typography and Layout. Reduce the amount of text in magazine ads.",
+    "img": "images/design-history/arrow.png"
   }
 ]
