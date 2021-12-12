@@ -1,8 +1,19 @@
 // quiz
 // question
 
-import { Fragment, ReactNode } from 'react'
-import { Routes, Route, Link, Outlet, Navigate } from 'react-router-dom'
+import { Fragment, ReactNode, useMemo } from 'react'
+import {
+  Routes,
+  Route,
+  Link,
+  Outlet,
+  Navigate,
+  useParams,
+} from 'react-router-dom'
+import fetch from 'unfetch'
+import useSWR from 'swr'
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
 function Container(props: { children?: ReactNode }) {
   return (
@@ -12,9 +23,29 @@ function Container(props: { children?: ReactNode }) {
   )
 }
 
-const items = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
+interface Typeface {
+  id: number
+  name: string
+  img: string
+  quizzes: number[]
+}
+
+interface Quiz {
+  quizId: number
+  name: string
+}
+
+function useGetQuizzes() {
+  return useSWR<Quiz[]>('/data/quizzes.json', fetcher)
+}
 
 export default function QuizList() {
+  const { data } = useGetQuizzes()
+
+  const quizzes = useMemo(() => {
+    return data ?? []
+  }, [data])
+
   return (
     <Fragment>
       <div className="pb-5 border-b border-gray-200">
@@ -24,17 +55,17 @@ export default function QuizList() {
       </div>
 
       <ul role="list" className="divide-y divide-gray-200">
-        {items.map((item) => (
-          <li key={item.id} className="py-4">
+        {quizzes.map((item) => (
+          <li key={item.quizId} className="py-4">
             <div className="flex items-center space-x-4">
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-gray-900 truncate">
-                  Quiz Name
+                  {item.name}
                 </p>
               </div>
               <div>
                 <Link
-                  to="123"
+                  to={`${item.quizId}`}
                   className="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50"
                 >
                   Start
@@ -48,12 +79,43 @@ export default function QuizList() {
   )
 }
 
-function QuizQuestion() {
-  return <div>Quiz</div>
+function QuizQuestion(props: Typeface) {
+  return (
+    <div>
+      <div>
+        <img src={props.img} alt={props.name} />
+      </div>
+      <div>{props.name}</div>
+    </div>
+  )
+}
+
+function useGetQuiz() {
+  return useSWR<Typeface[]>('/data/typefaces.json', fetcher)
 }
 
 function TakeQuiz() {
-  return <div>take quiz</div>
+  const params = useParams<'quizId'>()
+  const { data } = useGetQuiz()
+
+  const questions = useMemo(() => {
+    return data ?? []
+  }, [data])
+
+  const quizQuestions = useMemo(() => {
+    return questions.filter((question) =>
+      question.quizzes.includes(Number(params.quizId))
+    )
+  }, [questions])
+
+  return (
+    <div>
+      Quiz Questions
+      {quizQuestions.map((question) => {
+        return <QuizQuestion key={question.id} {...question} />
+      })}
+    </div>
+  )
 }
 
 function Hero() {

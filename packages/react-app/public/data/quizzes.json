@@ -1,10 +1,10 @@
 [
   {
-    "id": 1,
+    "quizId": 1,
     "name": "Typeface Quiz 1"
   },
   {
-    "id": 2,
+    "quizId": 2,
     "name": "Typeface Quiz 2"
   }
 ]
