@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "name": "Courier New",
+    "img": "images/typefaces/courier-new.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Arial",
+    "img": "images/typefaces/arial.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Helvetica",
+    "img": "images/typefaces/helvetica.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Adobe Garamond",
+    "img": "images/typefaces/garamond.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Palatino",
+    "img": "images/typefaces/palatino.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Apple Chancery",
+    "img": "images/typefaces/apple-chancery.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Big Caslon",
+    "img": "images/typefaces/big-calson.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 8,
+    "name": "American Typewriter",
+    "img": "images/typefaces/american-typewriter.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Didot",
+    "img": "images/typefaces/didot.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Bodoni",
+    "img": "images/typefaces/bodoni.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Baskerville",
+    "img": "images/typefaces/baskerville.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Rockwell",
+    "img": "images/typefaces/rockwell.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Cooper Black",
+    "img": "images/typefaces/cooper-black.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Univers",
+    "img": "images/typefaces/univers.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Mesquite",
+    "img": "images/typefaces/mesquite.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Jane Austen",
+    "img": "images/typefaces/jane-austen.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Krungthep",
+    "img": "images/typefaces/krungthep.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Tisa",
+    "img": "images/typefaces/tisa.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Americana",
+    "img": "images/typefaces/americana.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Socialico",
+    "img": "images/typefaces/socialico.png",
+    "quizzes": [
+      1
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Times",
+    "img": "images/typefaces/times.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id":23,
+    "name": "Georgia",
+    "img": "images/typefaces/georgia.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Snell Roundhand",
+    "img": "images/typefaces/snell-roundhand.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Frutiger",
+    "img": "images/typefaces/frutiger.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Stencil",
+    "img": "images/typefaces/stencil.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Chalkduster",
+    "img": "images/typefaces/chalkduster.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Impact",
+    "img": "images/typefaces/impact.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Calluna",
+    "img": "images/typefaces/calluna.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Fette Fraktur",
+    "img": "images/typefaces/fette-fraktur.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Futura",
+    "img": "images/typefaces/futura.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Hobo",
+    "img": "images/typefaces/hobo.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Trajan",
+    "img": "images/typefaces/trajan.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Gill Sans",
+    "img": "images/typefaces/gill-sans.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Copperplate",
+    "img": "images/typefaces/copperplate.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Gotham",
+    "img": "images/typefaces/gotham.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Meta",
+    "img": "images/typefaces/meta.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Neutra",
+    "img": "images/typefaces/neutra.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Verdana",
+    "img": "images/typefaces/verdana.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Optima",
+    "img": "images/typefaces/optima.png",
+    "quizzes": [
+      2
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Orator",
+    "img": "images/typefaces/orator.png",
+    "quizzes": [
+      2
+    ]
+  }
+]

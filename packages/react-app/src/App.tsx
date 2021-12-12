@@ -48,6 +48,10 @@ export default function QuizList() {
   )
 }
 
+function QuizQuestion() {
+  return <div>Quiz</div>
+}
+
 function TakeQuiz() {
   return <div>take quiz</div>
 }
