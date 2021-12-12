@@ -24,6 +24,18 @@ function Container(props: { children?: ReactNode }) {
   )
 }
 
+interface Answer {
+  text: string
+}
+
+interface Question {
+  id: number
+  text: string
+  imageUrl: string
+  answers: Answer[]
+  quizzes: number[]
+}
+
 interface Typeface {
   id: number
   name: string
@@ -105,9 +117,19 @@ function QuizQuestion(props: Typeface) {
   )
 }
 
-import { ExclamationIcon } from '@heroicons/react/solid'
+import {
+  ArrowLeftIcon,
+  CheckCircleIcon,
+  ChevronLeftIcon,
+  ExclamationIcon,
+} from '@heroicons/react/solid'
 
-function Alert() {
+interface AlertProps {
+  type: 'warning' | 'success'
+  message: ReactNode
+}
+
+function WarningAlert(props: { message: ReactNode }) {
   return (
     <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
       <div className="flex">
@@ -118,13 +140,38 @@ function Alert() {
           />
         </div>
         <div className="ml-3">
-          <p className="text-sm text-yellow-700">
-            You missed 7 out of 10 answers.
-          </p>
+          <p className="text-sm text-yellow-700">{props.message}</p>
         </div>
       </div>
     </div>
   )
+}
+
+function SuccessAlert(props: { message: ReactNode }) {
+  return (
+    <div className="bg-green-50 border-l-4 border-green-400 p-4">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <CheckCircleIcon
+            className="h-5 w-5 text-green-400"
+            aria-hidden="true"
+          />
+        </div>
+        <div className="ml-3">
+          <p className="text-sm text-green-700">{props.message}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Alert(props: AlertProps) {
+  switch (props.type) {
+    case 'warning':
+      return <WarningAlert message={props.message} />
+    case 'success':
+      return <SuccessAlert message={props.message} />
+  }
 }
 
 function useGetQuiz() {
@@ -147,6 +194,16 @@ function TakeQuiz() {
 
   return (
     <div className="space-y-6">
+      <div>
+        <Link
+          to=".."
+          className="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          <ArrowLeftIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+          Quizzes
+        </Link>
+      </div>
+
       <div className="md:flex md:items-center md:justify-between">
         <div className="flex-1 min-w-0">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
@@ -176,7 +233,8 @@ function TakeQuiz() {
         </div>
       </div>
 
-      <Alert />
+      <Alert type="warning" message="2 out of 10 answers incorrect." />
+      <Alert type="success" message="Congrats! All answers correct." />
 
       <ul role="list" className="divide-y divide-gray-200">
         {quizQuestions.map((question) => {
