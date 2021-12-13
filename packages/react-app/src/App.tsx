@@ -1,14 +1,20 @@
-import { Fragment, ReactNode, useMemo } from 'react'
+import { Fragment, ReactNode, useCallback, useMemo, useState } from 'react'
 import {
-  Routes,
-  Route,
   Link,
-  Outlet,
   Navigate,
+  Outlet,
+  Route,
+  Routes,
   useParams,
 } from 'react-router-dom'
 import fetch from 'unfetch'
 import useSWR from 'swr'
+import {
+  ArrowLeftIcon,
+  CheckCircleIcon,
+  ExclamationIcon,
+} from '@heroicons/react/solid'
+import { QuizHero } from './components/QuizHero'
 
 // quiz
 // question
@@ -24,19 +30,19 @@ function Container(props: { children?: ReactNode }) {
   )
 }
 
-interface Answer {
-  text: string
-}
+// interface Answer {
+//   text: string
+// }
+//
+// interface Question {
+//   id: number
+//   text: string
+//   imageUrl: string
+//   answers: Answer[]
+//   quizzes: number[]
+// }
 
 interface Question {
-  id: number
-  text: string
-  imageUrl: string
-  answers: Answer[]
-  quizzes: number[]
-}
-
-interface Typeface {
   id: number
   name: string
   img: string
@@ -61,6 +67,8 @@ export default function QuizList() {
 
   return (
     <Fragment>
+      <QuizHero />
+
       <div className="pb-5 border-b border-gray-200">
         <h3 className="text-lg leading-6 font-medium text-gray-900">
           Select a Quiz
@@ -92,13 +100,27 @@ export default function QuizList() {
   )
 }
 
-function QuizQuestion(props: Typeface) {
+interface QuizQuestionProps {
+  imageUrl: string
+}
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
+function QuizQuestion(props: {
+  question: Question
+  value: string
+  onChange: (value: string) => void
+  error: boolean
+  showAnswer: boolean
+}) {
   return (
     <div className="space-y-3">
       <div className="max-w-xl">
-        <img src={props.img} alt={props.name} />
+        <img src={props.question.img} alt={props.question.name} />
       </div>
-      <form className="sm:flex sm:items-center">
+      <div className="sm:flex sm:items-center">
         <div className="w-full sm:max-w-xs">
           <label htmlFor="answer" className="sr-only">
             Answer
@@ -107,22 +129,31 @@ function QuizQuestion(props: Typeface) {
             type="text"
             name="answer"
             id="answer"
-            className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+            className={classNames(
+              props.error
+                ? 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500'
+                : 'focus:ring-indigo-500 focus:border-indigo-500 border-gray-300',
+              'shadow-sm block w-full sm:text-sm rounded-md'
+            )}
             placeholder="Answer"
+            value={props.value}
+            onChange={(e) => props.onChange(e.target.value)}
           />
-          <p className="mt-2 text-sm text-gray-500">Answer: {props.name}</p>
+          {props.showAnswer && (
+            <p
+              className={classNames(
+                props.error ? 'text-red-600' : 'text-gray-500',
+                'mt-2 text-sm'
+              )}
+            >
+              Answer: {props.question.name}
+            </p>
+          )}
         </div>
-      </form>
+      </div>
     </div>
   )
 }
-
-import {
-  ArrowLeftIcon,
-  CheckCircleIcon,
-  ChevronLeftIcon,
-  ExclamationIcon,
-} from '@heroicons/react/solid'
 
 interface AlertProps {
   type: 'warning' | 'success'
@@ -175,10 +206,13 @@ function Alert(props: AlertProps) {
 }
 
 function useGetQuiz() {
-  return useSWR<Typeface[]>('/data/typefaces.json', fetcher)
+  return useSWR<Question[]>('/data/typefaces.json', fetcher)
 }
 
 function TakeQuiz() {
+  const [visibleAnswers, setVisibleAnswers] = useState(new Set<number>())
+  const [answers, setAnswers] = useState(new Map<number, string>())
+  const [questionErrors, setQuestionErrors] = useState(new Set<number>())
   const params = useParams<'quizId'>()
   const { data } = useGetQuiz()
 
@@ -191,6 +225,57 @@ function TakeQuiz() {
       question.quizzes.includes(Number(params.quizId))
     )
   }, [questions])
+
+  const onToggleAnswers = useCallback(() => {
+    setVisibleAnswers((preAnswers) => {
+      if (preAnswers.size > 0) {
+        return new Set()
+      }
+
+      return new Set(questions.map((question) => question.id))
+    })
+  }, [questions])
+
+  const onCheckAnswers = useCallback(() => {
+    setQuestionErrors(() => {
+      const errors = new Set<number>()
+
+      quizQuestions.forEach((question) => {
+        if (
+          question.name.toLowerCase().replace(' ', '').trim() !==
+          answers.get(question.id)?.toLowerCase().replace(' ', '').trim()
+        ) {
+          errors.add(question.id)
+        }
+      })
+
+      return errors
+    })
+
+    setVisibleAnswers(() => {
+      return new Set(questions.map((question) => question.id))
+    })
+  }, [quizQuestions, questions, answers])
+
+  const onReset = useCallback(() => {
+    setAnswers(() => {
+      return new Map()
+    })
+    setQuestionErrors(() => {
+      return new Set()
+    })
+    setVisibleAnswers(() => {
+      return new Set()
+    })
+  }, [])
+
+  const onAnswerChange = useCallback((questionId: number, answer: string) => {
+    setAnswers((preAnswers) => {
+      const answersCopy = new Map(preAnswers.entries())
+      answersCopy.set(questionId, answer)
+      return answersCopy
+    })
+  }, [])
 
   return (
     <div className="space-y-6">
@@ -214,6 +299,7 @@ function TakeQuiz() {
           <button
             type="button"
             className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            onClick={onToggleAnswers}
           >
             Toggle Answers
           </button>
@@ -221,26 +307,43 @@ function TakeQuiz() {
           <button
             type="button"
             className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            onClick={onReset}
           >
             Reset
           </button>
           <button
             type="button"
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            onClick={onCheckAnswers}
           >
             Check Answers
           </button>
         </div>
       </div>
 
-      <Alert type="warning" message="2 out of 10 answers incorrect." />
-      <Alert type="success" message="Congrats! All answers correct." />
+      {questionErrors.size > 0 && (
+        <Alert
+          type="warning"
+          message={`${questionErrors.size} out of ${quizQuestions.length} answers incorrect.`}
+        />
+      )}
+
+      {questionErrors.size == 0 && answers.size > 0 && (
+        <Alert type="success" message="Congrats! All answers correct." />
+      )}
 
       <ul role="list" className="divide-y divide-gray-200">
         {quizQuestions.map((question) => {
           return (
             <li className="py-4">
-              <QuizQuestion key={question.id} {...question} />
+              <QuizQuestion
+                key={question.id}
+                question={question}
+                value={answers.get(question.id) ?? ''}
+                onChange={(answer) => onAnswerChange(question.id, answer)}
+                error={questionErrors.has(question.id)}
+                showAnswer={visibleAnswers.has(question.id)}
+              />
             </li>
           )
         })}
@@ -249,36 +352,26 @@ function TakeQuiz() {
   )
 }
 
-function Hero() {
+function AppLayout() {
   return (
-    <div className="bg-white">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-            Type Review
-          </p>
-          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-            Test your knowledge of typefaces.
-          </p>
-        </div>
+    <Container>
+      <div className="py-10">
+        <Outlet />
       </div>
-    </div>
+    </Container>
   )
 }
 
 export function App() {
   return (
-    <Container>
-      <Hero />
-      <div className="py-10">
-        <Routes>
-          <Route path={'/'} element={<Navigate to={'/quizzes'} />} />
-          <Route path={'quizzes'} element={<Outlet />}>
-            <Route path={':quizId'} element={<TakeQuiz />} />
-            <Route index element={<QuizList />} />
-          </Route>
-        </Routes>
-      </div>
-    </Container>
+    <Routes>
+      <Route path={'/'} element={<AppLayout />}>
+        <Route index element={<Navigate to={'/quizzes'} />} />
+        <Route path={'quizzes'} element={<Outlet />}>
+          <Route path={':quizId'} element={<TakeQuiz />} />
+          <Route index element={<QuizList />} />
+        </Route>
+      </Route>
+    </Routes>
   )
 }
