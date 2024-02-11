@@ -1,8 +1,3 @@
-# Review App
+# Type Review
 
-Visit demo: [typereview.njisaac.com](http://typereview.njisaac.com/)
-
-## Roadmap
-
-- Add different quiz modes
-- Abstract google code / rewrite for angular app
+This was one of my first websites that I created to help me review for two classes while in college. 
